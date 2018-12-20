@@ -1,0 +1,37 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+     http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+
+ <persistence-unit name="pessoas">
+
+   <!-- provedor/implementacao do JPA -->
+   <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+   <!-- entidade mapeada -->
+   <class>com.stefanini.model.Pessoa</class>
+
+   <properties>
+     <!-- dados da conexao -->
+     <property name="javax.persistence.jdbc.driver" 
+             value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+    <property name="javax.persistence.jdbc.url" 
+            value="jdbc:sqlserver://localhost:1433;databaseName=RestExample" />
+    <property name="javax.persistence.jdbc.user" 
+            value="hugo" />
+    <property name="javax.persistence.jdbc.password" 
+            value="Stefanini@2018" />
+
+     <!--  propriedades do hibernate -->
+     <property name="hibernate.dialect" 
+               value="org.hibernate.dialect.SQLServerDialect" />
+    <property name="hibernate.show_sql" value="true" />
+    <property name="hibernate.format_sql" value="true" />
+
+    <!--  atualiza o banco, gera as tabelas se for preciso -->
+    <property name="hibernate.hbm2ddl.auto" value="update" />
+
+   </properties>
+ </persistence-unit>
+</persistence>
