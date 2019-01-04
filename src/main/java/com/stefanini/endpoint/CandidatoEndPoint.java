@@ -16,50 +16,50 @@ import javax.ws.rs.core.Response;
 
 import com.stefanini.exception.CampoInvalidoException;
 import com.stefanini.exception.PessoaInexistenteException;
-import com.stefanini.model.Pessoa;
-import com.stefanini.service.PessoaService;
+import com.stefanini.model.Candidato;
+import com.stefanini.service.CandidatoService;
 
-@Path("/pessoas")
-public class PessoaEndPoint {
+@Path("/candidatos")
+public class CandidatoEndPoint {
 	@Inject
-	PessoaService pessoaService;
+	CandidatoService candidatoService;
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Pessoa> index() {
-		return pessoaService.showAll();
+	public List<Candidato> index() {
+		return candidatoService.showAll();
 	}
 	
 	@GET
 	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Pessoa find(@PathParam("id") int id) throws PessoaInexistenteException {
-		return pessoaService.find(id);
+	public Candidato find(@PathParam("id") int id) throws PessoaInexistenteException {
+		return candidatoService.find(id);
 	}
 	
 	@POST
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response insert(Pessoa pessoa) throws CampoInvalidoException {
-		Pessoa pessoaCadastrada = pessoaService.insert(pessoa);
-		return Response.status(201).entity(pessoaCadastrada).build();
+	public Response insert(Candidato candidato) throws CampoInvalidoException {
+		Candidato candidatoCadastrado = candidatoService.insert(candidato);
+		return Response.status(201).entity(candidatoCadastrado).build();
 	}
 	
 	@PUT
 	@Path("/")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response update(Pessoa pessoa) throws PessoaInexistenteException {
-		pessoaService.update(pessoa);
-		return Response.status(200).entity(pessoa).build();
+	public Response update(Candidato candidato) throws PessoaInexistenteException {
+		candidatoService.update(candidato);
+		return Response.status(200).entity(candidato).build();
 	}
 	
 	@DELETE
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response delete(@PathParam("id") int id) throws PessoaInexistenteException {
-		pessoaService.delete(id);
+		candidatoService.delete(id);
 		return Response.status(200).build();
 	}
 	

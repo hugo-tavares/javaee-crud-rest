@@ -5,11 +5,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import javax.interceptor.InterceptorBinding;
+import javax.inject.Qualifier;
 
-@InterceptorBinding
-@Target({ ElementType.TYPE, ElementType.METHOD })
+@Qualifier
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Transactional {
+@Target({ElementType.FIELD,ElementType.PARAMETER,ElementType.METHOD,ElementType.TYPE})
+public @interface Dao {
+    }
 
-}

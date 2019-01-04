@@ -35,13 +35,11 @@ public class PessoaService implements Serializable {
 		return pessoaDao.findAll();
 	}
 
-	public void update(Pessoa nova) throws PessoaInexistenteException {
+	public Pessoa update(Pessoa nova) throws PessoaInexistenteException {
 		Pessoa antiga = pessoaDao.find(nova.getId());
 		if (antiga != null) {
-			antiga.setCpf(nova.getCpf());
-			antiga.setIdade(nova.getIdade());
-			antiga.setNome(nova.getNome());
-			pessoaDao.insert(antiga);
+			pessoaDao.update(nova);
+			return nova;
 		} else
 			throw new PessoaInexistenteException();
 

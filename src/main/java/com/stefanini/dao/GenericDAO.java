@@ -3,7 +3,7 @@ package com.stefanini.dao;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.interceptor.Interceptors;
@@ -15,8 +15,8 @@ import javax.persistence.criteria.Root;
 import com.stefanini.interceptor.InterceptorTransactional;
 
 @Named
-@RequestScoped
-public class GenericDAO<T> implements Serializable{
+@Dependent
+public class GenericDao<T> implements Serializable{
 
 	/**
 	 * 
@@ -28,7 +28,7 @@ public class GenericDAO<T> implements Serializable{
 	
 	private Class<T> type;
 	
-	public GenericDAO(Class<T> type) {
+	public GenericDao(Class<T> type) {
 		this.type = type;
 	}
 	
@@ -50,9 +50,9 @@ public class GenericDAO<T> implements Serializable{
 	}
 	
 	@Interceptors(InterceptorTransactional.class)
-	public T insert(T entidade) {
-		entityManager.persist(entidade);
-		return entidade;
+	public T insert(T t) {
+		entityManager.persist(t);
+		return t;
 	}
 
 	@Interceptors(InterceptorTransactional.class)

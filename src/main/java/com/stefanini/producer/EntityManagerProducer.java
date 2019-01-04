@@ -1,4 +1,4 @@
-package com.stefanini.model;
+package com.stefanini.producer;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;

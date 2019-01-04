@@ -9,10 +9,7 @@ import javax.interceptor.InvocationContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import com.stefanini.annotation.Transactional;
-
 @Interceptor
-@Transactional
 public class InterceptorTransactional implements Serializable {
 
     private static final long serialVersionUID = 1L;

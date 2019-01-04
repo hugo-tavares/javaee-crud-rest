@@ -3,18 +3,18 @@ package com.stefanini.dao;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
-import com.stefanini.model.Pessoa;
+import com.stefanini.model.Candidato;
 
-@Named("PessoaDAO")
+@Named("candidatoDao")
 @RequestScoped
-public class PessoaDao extends GenericDao<Pessoa>{
+public class CandidatoDao extends GenericDao<Candidato>{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 153535387424452772L;
 	
-	public PessoaDao() {
-		super(Pessoa.class);
+	public CandidatoDao() {
+		super(Candidato.class);
 	}
 
 	/**

@@ -11,7 +11,8 @@
 
    <!-- entidade mapeada -->
    <class>com.stefanini.model.Pessoa</class>
-
+	<class>com.stefanini.model.Candidato</class>
+	
    <properties>
      <!-- dados da conexao -->
      <property name="javax.persistence.jdbc.driver" 
