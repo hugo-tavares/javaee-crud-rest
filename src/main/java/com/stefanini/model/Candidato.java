@@ -1,5 +1,6 @@
 package com.stefanini.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,9 +12,9 @@ public class Candidato {
 	
 	@Id
 	private Integer numero;
-	
 	private Integer quantidadeVotos;
 	
+	@Column(nullable=false)
 	private String cpf;
 	
 	public Candidato(String nome, String cpf, Integer numero, Integer quantidadeVotos) {

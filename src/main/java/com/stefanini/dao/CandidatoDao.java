@@ -17,9 +17,5 @@ public class CandidatoDao extends GenericDao<Candidato>{
 		super(Candidato.class);
 	}
 
-	/**
-	 * 
-	 */
-	//private static final long serialVersionUID = -30860686489829483L;
 	
 }
